@@ -81,7 +81,7 @@ parse_string() {
 	#eval "set -- $1" # do not  use eval, see CVE-2021-40084
 	set -- $1
 	suffix="${1#?}"
-	type="${1%%${suffix}}" name="$2" id="$3" gecos="$4" home="$5"
+	type="${1%%${suffix}}" name="$2" id="${3:--}" gecos="${4:--}" home="$5"
 
 	# and now set the GECOS field without eval
 	if [ "${type}" = u ]; then
